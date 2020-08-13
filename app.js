@@ -4,8 +4,13 @@ const app = express()
 const port = 3000
 
 app.use(function (req, res, next) {
+  const request_start_time = new Date().getTime()
   const localTime = new Date().toLocaleString('zh-TW', { hour12: false })
-  console.log(localTime, req.method, 'from', req.originalUrl)
+  res.on('finish', function () {
+    const response_end_time = new Date().getTime()
+    const duration = response_end_time - request_start_time
+    console.log(localTime, '|', req.method, 'from', req.originalUrl, '|', 'total time:', duration, 'ms')
+  })
   next()
 })
 
