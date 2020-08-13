@@ -12,7 +12,7 @@ Alpha camp 練習題
 `npm install`
 
 4. 啟動專案
-`npm run dev`
+`nodemon app.js`
 
 5. 若終端機出現`App running on localhost:3000`，請在瀏覽器網址輸入` localhost:3000 `，即可開啟
 
